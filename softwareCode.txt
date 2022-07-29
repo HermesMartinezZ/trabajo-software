@@ -46,3 +46,56 @@ public class TurnoVirtual {
 
     public boolean isEstadoTurnoVirtual() {
 
+--------------------------------------------------------------------
+return estadoTurnoVirtual;
+    }
+
+    public void setEstadoTurnoVirtual(boolean estadoTurnoVirtual) {
+        this.estadoTurnoVirtual = estadoTurnoVirtual;
+    }
+
+    public int getTurnoEnAtencion() {
+        return turnoEnAtencion;
+    }
+
+    public void setTurnoEnAtencion(int turnoEnAtencion) {
+        this.turnoEnAtencion = turnoEnAtencion;
+    }
+
+    public int getCantidadTurnosAtendidos() {
+        return cantidadTurnosAtendidos;
+    }
+
+    public void setCantidadTurnosAtendidos(int cantidadTurnosAtendidos) {
+        this.cantidadTurnosAtendidos = cantidadTurnosAtendidos;
+    }
+    
+    
+    //INSERTE LOS DEMÁS MÉTODOS
+    
+    public void atenderProximoTurno(){
+        if (estadoTurnoVirtual == true){
+            turnoEnAtencion = turnoEnAtencion + 1;
+            cantidadTurnosAtendidos ++ ;
+        }
+    }
+    
+    public void cambiarEstadoTurno(){
+        if (estadoTurnoVirtual == true){
+            estadoTurnoVirtual = false;
+        }else{
+            estadoTurnoVirtual = true;
+        }
+    }
+    
+    
+    //NO SE DEBE PREOCUPAR POR DESARROLLAR ESTE MÉTODO. ¡NO ELIMINARLO NI MODIFICARLO!
+    public void agregarTurnoPerdido() {
+        for (int i = 0; i < turnosPerdidos.length; i++) {
+            if (" ".equals(turnosPerdidos[i])) {
+                turnosPerdidos[i] = turnos[turnoEnAtencion];
+                break;
+            }
+        }
+    }  
+}
